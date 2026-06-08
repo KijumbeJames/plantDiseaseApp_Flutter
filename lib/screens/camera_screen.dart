@@ -120,7 +120,7 @@ class _CameraScreenState extends State<CameraScreen>
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (_, animation, __) {
+        pageBuilder: (_, animation, _) {
           final curved =
               CurvedAnimation(parent: animation, curve: Curves.easeOutCubic);
           return FadeTransition(
@@ -128,7 +128,7 @@ class _CameraScreenState extends State<CameraScreen>
             child: ResultScreen(imageFile: _selectedImage!),
           );
         },
-        transitionsBuilder: (_, animation, __, child) {
+        transitionsBuilder: (_, animation, _, child) {
           final curved =
               CurvedAnimation(parent: animation, curve: Curves.easeOutCubic);
           return SlideTransition(
@@ -232,7 +232,7 @@ class _CameraScreenState extends State<CameraScreen>
                 children: [
                   AnimatedBuilder(
                     animation: _pulseAnim,
-                    builder: (_, __) => Transform.scale(
+                    builder: (_, _) => Transform.scale(
                       scale: _pulseAnim.value,
                       child: Container(
                         width: 6,
@@ -270,7 +270,7 @@ class _CameraScreenState extends State<CameraScreen>
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: AnimatedBuilder(
           animation: _cornerAnim,
-          builder: (_, __) {
+          builder: (_, _) {
             final color = Color.lerp(
               _c.brand,
               const Color(0xFF4ADE80),
